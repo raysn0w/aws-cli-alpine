@@ -1,0 +1,14 @@
+version: 2.1
+
+
+jobs:
+  checkout:
+    docker:
+      - image: cimg/base:2022.08-22.04
+    steps:
+      - checkout
+
+workflows:
+  image-and-deploy:
+    jobs:
+      - checkout
