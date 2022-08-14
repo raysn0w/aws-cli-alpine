@@ -11,7 +11,7 @@ jobs:
       - run:
           name: "Building the image"
           command: |
-            docker compose build
+            docker-compose build
 
 workflows:
   image-and-deploy:
