@@ -7,11 +7,12 @@ jobs:
       - image: cimg/base:2022.08-22.04
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: 20.10.12
       - run:
           name: "Building the image"
           command: |
-            docker-compose build
+            docker compose build
 
 workflows:
   image-and-deploy:
