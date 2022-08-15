@@ -2,19 +2,22 @@ version: 2.1
 
 
 jobs:
-  checkout:
+  build-and-deploy:
     docker:
       - image: cimg/base:2022.08-22.04
     steps:
       - checkout
       - setup_remote_docker:
-          version: 20.10.12
+          docker_layer_caching: true
+          version: 20.10.14
       - run:
           name: "Building the image"
           command: |
             docker compose build
+            echo $DOCKER_HUB | docker login -u $DOCKER_USER --password-stdin
+            docker push raysn0w/aws-cli-alpine:latest
 
 workflows:
-  image-and-deploy:
+  build-and-deploy:
     jobs:
-      - checkout
+      - build-and-deploy
