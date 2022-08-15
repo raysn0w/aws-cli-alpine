@@ -1,3 +1,4 @@
+[![raysn0w](https://circleci.com/gh/raysn0w/aws-cli-alpine.svg?style=shield)](https://circleci.com/github/raysn0w/aws-cli-alpine)
 ## Usage:
 
 ```
