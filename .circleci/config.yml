@@ -16,8 +16,10 @@ jobs:
             docker compose build
             echo $DOCKER_HUB | docker login -u $DOCKER_USER --password-stdin
             docker push raysn0w/aws-cli-alpine:latest
-            docker tag raysn0w/aws-cli-alpine:latest raysn0w/aws-cli-alpine:2.8.3
-            docker push raysn0w/aws-cli-alpine:2.8.3
+            TAG=$(cat docker-compose.yml | yq ".services.aws-cli.build.args.AWS_CLI_VERSION")
+            echo "$TAG"
+            docker tag raysn0w/aws-cli-alpine:latest raysn0w/aws-cli-alpine:"$TAG"
+            docker push raysn0w/aws-cli-alpine:"$TAG"
 
 workflows:
   build-and-deploy:
