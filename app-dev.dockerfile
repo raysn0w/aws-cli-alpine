@@ -9,7 +9,7 @@ ARG AWS_CLI_VERSION
 # Update, add, and build
 ###############################
 #RUN apk add --no-cache git unzip groff build-base libffi-dev cmake
-RUN apk add --no-cache git unzip cmake build-base
+RUN apk add --no-cache git unzip cmake build-base less groff
 RUN git clone --single-branch --depth 1 -b ${AWS_CLI_VERSION} https://github.com/aws/aws-cli.git
 
 WORKDIR aws-cli
