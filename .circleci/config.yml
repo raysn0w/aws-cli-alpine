@@ -16,8 +16,8 @@ jobs:
             docker compose build
             echo $DOCKER_HUB | docker login -u $DOCKER_USER --password-stdin
             docker push raysn0w/aws-cli-alpine:latest
-            docker tag raysn0w/aws-cli-alpine:latest raysn0w/aws-cli-alpine:2.7.24
-            docker push raysn0w/aws-cli-alpine:2.7.24
+            docker tag raysn0w/aws-cli-alpine:latest raysn0w/aws-cli-alpine:2.8.3
+            docker push raysn0w/aws-cli-alpine:2.8.3
 
 workflows:
   build-and-deploy:
